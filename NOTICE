@@ -1,0 +1,13 @@
+This product (TOS App Center packaging of ttyd) includes software developed
+by the ttyd project:
+
+  ttyd - Share your terminal over the web
+  https://github.com/tsl0922/ttyd
+  Copyright the ttyd authors
+  Licensed under the MIT License
+
+The packaged binary is the unmodified `ttyd` release binary published in the
+upstream project's GitHub Releases (musl static build); its SHA256 is pinned
+in the UPSTREAM file of this repository. The TOS packaging metadata, build
+scripts, systemd unit, credential seed and documentation in this repository
+are original work by ericbyz, licensed under the MIT License.

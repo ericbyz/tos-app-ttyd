@@ -1,0 +1,155 @@
+[zh-cn]
+name = "ttyd 网页终端"
+auth = "ericbyz"
+descript = "在 TOS 悬浮窗里直接打开 TNAS 的 bash 终端,任意浏览器可用,不用 SSH 客户端。上游 musl 静态二进制原样封装(MIT),首次打开输入安装时自动生成的账号密码(admin / 随机密码,存于 /etc/ttyd/ttyd.env,可修改后 systemctl restart ttyd)。终端会话为只读用户,操作 NAS 文件请配合 sudo 场景按需授权。"
+note = "1. 将上游 tsl0922/ttyd(MIT)原样封装为 TOS 应用。"
+
+[zh-hk]
+name = "ttyd 網頁終端"
+auth = "ericbyz"
+descript = "在 TOS 懸浮窗裡直接打開 TNAS 的 bash 終端,任意瀏覽器可用,不用 SSH 客戶端。上游 musl 靜態二進制原樣封裝(MIT),首次打開輸入安裝時自動生成的賬號密碼(admin / 隨機密碼,存於 /etc/ttyd/ttyd.env,可修改後 systemctl restart ttyd)。"
+note = "1. 将上游 tsl0922/ttyd(MIT)原样封装为 TOS 应用。"
+
+[en-us]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[ko-kr]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "브라우저에서 NAS bash 터미널을 직접 사용: SSH 클라이언트가 필요 없습니다. 업스트림 musl 정적 바이너리를 무수정 패키징(MIT). 첫 접속 시 설치 중 생성된 자격 증명(admin/랜덤 비밀번호, /etc/ttyd/ttyd.env)을 입력합니다."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[ja-jp]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "ブラウザから NAS の bash ターミナルを直接操作:SSH クライアント不要。上流の musl 静的バイナリを無改修でパッケージ化(MIT)。初回はインストール時に生成された認証情報(admin/ランダムパスワード、/etc/ttyd/ttyd.env)を入力します。"
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[de-de]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Bedienen Sie die TNAS-Bash-Shell direkt im Browser — kein SSH-Client nötig. Upstream musl-statisch, unverändert paketiert (MIT). Erster Login mit generierten Zugangsdaten (admin/Zufallspasswort, in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[fr-fr]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Utilisez le shell bash du TNAS directement dans le navigateur, sans client SSH. Binaire musl statique upstream intact (MIT). Première connexion avec identifiants générés (admin/mot de passe aléatoire, /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[it-it]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[es-es]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Use la shell bash del TNAS directamente en el navegador, sin cliente SSH. Binario musl estático upstream intacto (MIT). Primer acceso con credenciales generadas (admin/contraseña aleatoria, /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[hu-hu]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[pl-pl]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[tr-tr]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[ru-ru]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Работайте с bash-шеллом NAS прямо в браузере — SSH-клиент не нужен. Оригинальный статический musl-бинарник без изменений (MIT). Первый вход с сгенерированными учётными данными (admin/случайный пароль, /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[pt-pt]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[cs-cz]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[da-dk]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[nl-nl]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[nb-no]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[sv-se]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[el-gr]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[ro-ro]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[th-th]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[vi-vn]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[id-id]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[ar-sa]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."
+
+[he-il]
+name = "ttyd Web Terminal"
+auth = "ericbyz"
+descript = "Share the TNAS terminal over the web: a full bash session in the TOS desktop floating window from any browser. Packaged unmodified from upstream tsl0922/ttyd (MIT). First launch prompts for a generated credential (admin / random password, stored in /etc/ttyd/ttyd.env)."
+note = "1. Repackaged upstream tsl0922/ttyd (MIT) unmodified for TOS."

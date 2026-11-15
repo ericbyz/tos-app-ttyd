@@ -1,0 +1,44 @@
+[Unit]
+Description=ttyd - Web terminal (TOS)
+After=network.target
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+[Service]
+Type=simple
+User=ttyd
+Group=ttyd
+EnvironmentFile=/etc/ttyd/ttyd.env
+WorkingDirectory=/var/lib/ttyd
+# TTYD_PORT and TTYD_CREDENTIAL come from /etc/ttyd/ttyd.env.
+# --writable enables input (ttyd is read-only without it); the terminal
+# command runs a login bash for the dedicated ttyd user.
+ExecStart=/usr/local/ttyd/bin/ttyd --port ${TTYD_PORT} --writable --credential ${TTYD_CREDENTIAL} /bin/bash --login
+TimeoutStartSec=30
+TimeoutStopSec=10
+
+# Security hardening (TOS 7 review requires NoNewPrivileges/ProtectSystem/ProtectHome;
+# Restart= is intentionally omitted — service lifecycle is managed by the platform)
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+# NOTE: PrivateDevices is intentionally false — ttyd allocates a pty
+# (/dev/ptmx) for every terminal session
+PrivateDevices=false
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictRealtime=true
+MemoryDenyWriteExecute=true
+LockPersonality=true
+RestrictSUIDSGID=true
+RemoveIPC=true
+SystemCallArchitectures=native
+
+ReadWritePaths=/var/lib/ttyd
+
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

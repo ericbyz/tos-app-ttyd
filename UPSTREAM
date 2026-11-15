@@ -1,0 +1,16 @@
+# Upstream project pin — single source of truth for reproducible builds.
+# ttyd is packaged unmodified from upstream tsl0922/ttyd (MIT). IMPORTANT:
+# this package must NOT modify the upstream binaries; it only adds packaging
+# metadata, a systemd unit, a credential seed and the platform nginx route.
+
+UPSTREAM_REPO=https://github.com/tsl0922/ttyd
+UPSTREAM_LICENSE=MIT
+
+UPSTREAM_TAG=1.7.7
+UPSTREAM_VERSION=1.7.7
+
+ASSET_x86_64=ttyd.x86_64
+ASSET_aarch64=ttyd.aarch64
+
+SHA256_x86_64=8a217c968aba172e0dbf3f34447218dc015bc4d5e59bf51db2f2cd12b7be4f55
+SHA256_aarch64=b38acadd89d1d396a0f5649aa52c539edbad07f4bc7348b27b4f4b7219dd4165

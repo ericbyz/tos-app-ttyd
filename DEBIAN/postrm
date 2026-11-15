@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+APPID="ttyd"
+if [ "$1" = "purge" ]; then
+    systemctl stop "ttyd.service" 2>/dev/null || true
+    id -u "${APPID}" >/dev/null 2>&1 && userdel "${APPID}" 2>/dev/null || true
+    rm -rf /var/lib/ttyd /etc/ttyd /usr/local/ttyd 2>/dev/null || true
+    rm -f /etc/systemd/system/ttyd.service 2>/dev/null || true
+    systemctl daemon-reload 2>/dev/null || true
+fi
+exit 0

@@ -1,0 +1,14 @@
+Package: ttyd
+Version: 1.7.7
+Architecture: amd64
+Section: net
+Priority: optional
+Maintainer: ericbyz <ericbyz@users.noreply.github.com>
+Depends: systemd
+Description: Share your terminal over the web (ttyd)
+ ttyd is a tiny web terminal: open the TOS desktop floating window and get a
+ full bash session on the TNAS from any browser, at
+ http://<NAS>/ttyd/. First launch prompts for a generated credential
+ (admin / random password, printed at install time and stored in
+ /etc/ttyd/ttyd.env — change it there).
+ Upstream project: https://github.com/tsl0922/ttyd (MIT), packaged unmodified.
