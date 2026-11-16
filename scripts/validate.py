@@ -5,7 +5,7 @@ iframe mode (embedded floating window, nginx port-proxy with WebSocket
 upgrade headers): checks config.ini required fields, mutual exclusion of
 type/open_path, id charset rules, category limits (official category IDs),
 lang coverage (26 documented languages, advisory), icon SVG validity, and
-path/port consistency with /etc/ttyd/ttyd.env seed. Exit code 0 = pass.
+path/port consistency with /etc/ttyd-web/ttyd-web.env seed. Exit code 0 = pass.
 """
 import json
 import os
@@ -74,12 +74,12 @@ def main() -> int:
     # UI mode checks: iframe (embedded, nginx port-proxy with ws headers)
     path = cfg.get("path", "")
     env_port = None
-    seed = open("packaging-extras/ttyd.env.default", encoding="utf-8").read()
+    seed = open("packaging-extras/ttyd-web.env.default", encoding="utf-8").read()
     m = re.search(r"^TTYD_PORT=(\d+)", seed, re.M)
     if m:
         env_port = int(m.group(1))
     else:
-        err("packaging-extras/ttyd.env.default missing TTYD_PORT")
+        err("packaging-extras/ttyd-web.env.default missing TTYD_PORT")
 
     if cfg.get("open_path"):
         err("ttyd must use type=iframe (embedded terminal, no separate tab)")
@@ -104,20 +104,20 @@ def main() -> int:
                 err(f"{conf_path} missing WebSocket upgrade headers "
                     "(proxy_set_header Upgrade/Connection)")
         if env_port is None:
-            err("TTYD_PORT missing from packaging-extras/ttyd.env.default")
+            err("TTYD_PORT missing from packaging-extras/ttyd-web.env.default")
         elif not (8000 <= env_port <= 19999):
             advisories.append(f"port {env_port} is outside the recommended 8000-19999 range")
     else:
         err("config.ini must declare type=iframe")
 
     # service unit: must consume the /etc seed and force --writable
-    svc_path = "init.d/ttyd.service"
+    svc_path = "init.d/ttyd-web.service"
     if not os.path.exists(svc_path):
         err(f"missing {svc_path}")
     else:
         svc = open(svc_path, encoding="utf-8").read()
-        if "EnvironmentFile=/etc/ttyd/ttyd.env" not in svc:
-            err(f"{svc_path}: must load /etc/ttyd/ttyd.env (generated credential)")
+        if "EnvironmentFile=/etc/ttyd-web/ttyd-web.env" not in svc:
+            err(f"{svc_path}: must load /etc/ttyd-web/ttyd-web.env (generated credential)")
         if "--writable" not in svc:
             err(f"{svc_path}: missing --writable (ttyd is read-only by default)")
 

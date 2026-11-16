@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
-APPID="ttyd"
+APPID="ttyd-web"
 case "$1" in
     remove|deconfigure)
-        systemctl stop "ttyd.service" 2>/dev/null || true
-        systemctl disable "ttyd.service" 2>/dev/null || true
+        systemctl stop "ttyd-web.service" 2>/dev/null || true
+        systemctl disable "ttyd-web.service" 2>/dev/null || true
         ;;
     upgrade|failed-upgrade) ;;
     *) ;;

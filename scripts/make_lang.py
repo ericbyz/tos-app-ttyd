@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate ttyd.lang for the TOS App Center (26 locales, English fill)."""
+"""Generate ttyd-web.lang for the TOS App Center (26 locales, English fill)."""
 NAME_EN = "ttyd Web Terminal"
 AUTHOR = "ericbyz"
 DESC_EN = (
@@ -52,4 +52,4 @@ def main(out_path):
     print("wrote", out_path, len(ORDER), "locales")
 
 if __name__ == "__main__":
-    main("ttyd.lang")
+    main("ttyd-web.lang")

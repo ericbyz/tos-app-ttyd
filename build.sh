@@ -27,7 +27,7 @@ while IFS='=' read -r key value; do
     PIN["${key}"]="${value}"
 done < UPSTREAM
 
-APP_ID="ttyd"
+APP_ID="ttyd-web"
 VERSION="${PIN[UPSTREAM_VERSION]}"
 TAG="${PIN[UPSTREAM_TAG]}"
 
@@ -99,17 +99,17 @@ EOF
     # application payload: the release asset IS the binary
     install -m 755 "${ASSET_FILE[${platform}]}" "${staging}/usr/local/${APP_ID}/bin/ttyd"
     install -m 644 config.ini "${staging}/usr/local/${APP_ID}/config.ini"
-    install -m 644 ttyd.lang "${staging}/usr/local/${APP_ID}/ttyd.lang"
-    install -m 644 images/icons/ttyd.svg "${staging}/usr/local/${APP_ID}/images/icons/ttyd.svg"
-    install -m 644 init.d/ttyd.service "${staging}/usr/local/${APP_ID}/init.d/ttyd.service"
-    install -m 644 nginx/ttyd.conf "${staging}/usr/local/${APP_ID}/nginx/ttyd.conf"
-    install -m 644 packaging-extras/ttyd.env.default "${staging}/usr/local/${APP_ID}/packaging-extras/ttyd.env.default"
+    install -m 644 ttyd-web.lang "${staging}/usr/local/${APP_ID}/ttyd-web.lang"
+    install -m 644 images/icons/ttyd-web.svg "${staging}/usr/local/${APP_ID}/images/icons/ttyd-web.svg"
+    install -m 644 init.d/ttyd-web.service "${staging}/usr/local/${APP_ID}/init.d/ttyd-web.service"
+    install -m 644 nginx/ttyd-web.conf "${staging}/usr/local/${APP_ID}/nginx/ttyd-web.conf"
+    install -m 644 packaging-extras/ttyd-web.env.default "${staging}/usr/local/${APP_ID}/packaging-extras/ttyd-web.env.default"
 
     install -m 644 DEBIAN/control "${staging}/DEBIAN/control"
     python3 - "$staging" "${dpkg_arch}" "${platform}" <<'PYEOF'
 import json, sys
 staging, dpkg_arch, platform = sys.argv[1], sys.argv[2], sys.argv[3]
-app_root = f"{staging}/usr/local/ttyd"
+app_root = f"{staging}/usr/local/ttyd-web"
 cfg = json.load(open(f"{app_root}/config.ini", encoding="utf-8"))
 cfg["platform"] = platform
 with open(f"{app_root}/config.ini", "w", encoding="utf-8", newline="\n") as f:

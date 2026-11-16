@@ -1,19 +1,19 @@
 [Unit]
-Description=ttyd - Web terminal (TOS)
+Description=ttyd-web - Web terminal (TOS)
 After=network.target
 StartLimitBurst=5
 StartLimitIntervalSec=60
 
 [Service]
 Type=simple
-User=ttyd
-Group=ttyd
-EnvironmentFile=/etc/ttyd/ttyd.env
-WorkingDirectory=/var/lib/ttyd
-# TTYD_PORT and TTYD_CREDENTIAL come from /etc/ttyd/ttyd.env.
-# --writable enables input (ttyd is read-only without it); the terminal
-# command runs a login bash for the dedicated ttyd user.
-ExecStart=/usr/local/ttyd/bin/ttyd --port ${TTYD_PORT} --writable --credential ${TTYD_CREDENTIAL} /bin/bash --login
+User=ttyd-web
+Group=ttyd-web
+EnvironmentFile=/etc/ttyd-web/ttyd-web.env
+WorkingDirectory=/var/lib/ttyd-web
+# TTYD_PORT and TTYD_CREDENTIAL come from /etc/ttyd-web/ttyd-web.env.
+# --writable enables input (ttyd-web is read-only without it); the terminal
+# command runs a login bash for the dedicated ttyd-web user.
+ExecStart=/usr/local/ttyd-web/bin/ttyd --port ${TTYD_PORT} --writable --credential ${TTYD_CREDENTIAL} /bin/bash --login
 TimeoutStartSec=30
 TimeoutStopSec=10
 
@@ -23,7 +23,7 @@ NoNewPrivileges=true
 ProtectSystem=strict
 ProtectHome=true
 PrivateTmp=true
-# NOTE: PrivateDevices is intentionally false — ttyd allocates a pty
+# NOTE: PrivateDevices is intentionally false — ttyd-web allocates a pty
 # (/dev/ptmx) for every terminal session
 PrivateDevices=false
 ProtectKernelTunables=true
@@ -36,7 +36,7 @@ RestrictSUIDSGID=true
 RemoveIPC=true
 SystemCallArchitectures=native
 
-ReadWritePaths=/var/lib/ttyd
+ReadWritePaths=/var/lib/ttyd-web
 
 LimitNOFILE=65536
 

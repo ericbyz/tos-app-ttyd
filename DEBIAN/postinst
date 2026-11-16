@@ -2,38 +2,38 @@
 # Post-installation script — runs after the package is installed
 set -e
 
-APPID="ttyd"
+APPID="ttyd-web"
 APP_DIR="/usr/local/${APPID}"
 
 # Dedicated system user with a writable home (shell cwd)
 if ! id -u "${APPID}" > /dev/null 2>&1; then
-    useradd --system --no-create-home --shell /bin/bash --home /var/lib/ttyd "${APPID}" 2>/dev/null || true
+    useradd --system --no-create-home --shell /bin/bash --home /var/lib/ttyd-web "${APPID}" 2>/dev/null || true
 fi
-mkdir -p /var/lib/ttyd 2>/dev/null || true
-chown -R "${APPID}:${APPID}" "${APP_DIR}" /var/lib/ttyd 2>/dev/null || true
+mkdir -p /var/lib/ttyd-web 2>/dev/null || true
+chown -R "${APPID}:${APPID}" "${APP_DIR}" /var/lib/ttyd-web 2>/dev/null || true
 
 # Credential seed: generated once at first install, survives upgrades.
 # The service EnvironmentFile lives in /etc (config territory).
-mkdir -p /etc/ttyd 2>/dev/null || true
-if [ ! -f /etc/ttyd/ttyd.env ]; then
+mkdir -p /etc/ttyd-web 2>/dev/null || true
+if [ ! -f /etc/ttyd-web/ttyd-web.env ]; then
     PWD_GEN="$(tr -dc A-Za-z0-9 </dev/urandom 2>/dev/null | head -c 16)"
-    [ -n "${PWD_GEN}" ] || PWD_GEN="ttyd-$(head -c 4 /dev/urandom | od -An -tx1 | tr -d ' \n')"
+    [ -n "${PWD_GEN}" ] || PWD_GEN="ttyd-web-$(head -c 4 /dev/urandom | od -An -tx1 | tr -d ' \n')"
     {
         echo "TTYD_PORT=18231"
         echo "TTYD_CREDENTIAL=admin:${PWD_GEN}"
-    } > /etc/ttyd/ttyd.env
-    chmod 640 /etc/ttyd/ttyd.env
-    echo "ttyd: credential admin:${PWD_GEN} (stored in /etc/ttyd/ttyd.env — edit to change)"
+    } > /etc/ttyd-web/ttyd-web.env
+    chmod 640 /etc/ttyd-web/ttyd-web.env
+    echo "ttyd-web: credential admin:${PWD_GEN} (stored in /etc/ttyd-web/ttyd-web.env — edit to change)"
 fi
 
 case "$1" in
     configure)
         if [ -n "$2" ]; then
-            echo "${APPID}: upgrading from version $2 (credential in /etc/ttyd/ttyd.env preserved)"
+            echo "${APPID}: upgrading from version $2 (credential in /etc/ttyd-web/ttyd-web.env preserved)"
         fi
         systemctl daemon-reload 2>/dev/null || true
-        systemctl enable "ttyd.service" 2>/dev/null || true
-        systemctl start "ttyd.service" 2>/dev/null || true
+        systemctl enable "ttyd-web.service" 2>/dev/null || true
+        systemctl start "ttyd-web.service" 2>/dev/null || true
         ;;
     *) ;;
 esac

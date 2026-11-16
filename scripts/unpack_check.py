@@ -32,7 +32,7 @@ def main() -> int:
     version = sys.argv[3] if len(sys.argv) > 3 else None
     if platform not in ELF_MACHINE:
         return err(f"unknown platform {platform}")
-    app_id = "ttyd"
+    app_id = "ttyd-web"
 
     data = open(deb, "rb").read()
     if data[:8] != b"!<arch>\n":
@@ -89,12 +89,12 @@ def main() -> int:
                 elfs.append((m.name, machine, m.mode))
     for need in (f"./usr/local/{app_id}/bin/ttyd",
                  f"./usr/local/{app_id}/config.ini",
-                 f"./usr/local/{app_id}/packaging-extras/ttyd.env.default",
+                 f"./usr/local/{app_id}/packaging-extras/ttyd-web.env.default",
                  f"./usr/local/{app_id}/init.d/{app_id}.service",
                  f"./usr/local/{app_id}/nginx/{app_id}.conf",
                  f"./usr/local/{app_id}/{app_id}.lang",
                  f"./usr/local/{app_id}/images/icons/{app_id}.svg",
-                 "./usr/share/doc/ttyd/copyright"):
+                 "./usr/share/doc/ttyd-web/copyright"):
         if need not in pnames:
             return err(f"data.tar missing {need}")
     for s in ("postinst", "prerm", "postrm"):

@@ -1,4 +1,4 @@
-# tos-app-ttyd
+# tos-app-ttyd(应用 ID:ttyd-web)
 
 将 [ttyd](https://github.com/tsl0922/ttyd)(网页终端,MIT)打包为 [铁威马 TOS](https://www.terra-master.com) 应用中心 **deb 类应用**(x86_64 + aarch64 双架构)。
 
@@ -84,3 +84,16 @@ ELF 机器类型与可执行位全过才算完成。
 - 上游二进制**原样封装**(MIT),未修改任何上游代码,许可证全文随包分发;
 - 安装包内容:上游 Release 二进制 + 本仓元数据,无其他二进制;
 - 不收集任何用户数据;终端会话不落盘记录。
+
+## ⚠️ 重要教训:应用 ID 不能叫 `ttyd`(v1.7.7 初版返工记录)
+
+TOS 7 的**内置 Web 终端本身就是 ttyd**(官方 deb 包:二进制 `/usr/bin/ttyd`,
+服务 `/usr/lib/systemd/system/ttyd.service`,配置 `/etc/default/ttyd`,
+`ttyd -b /v2/ttyd -P 1 -i lo -p 7681 bash --login`,由 TOS 主服务反代 `/v2/ttyd`)。
+初版应用 ID 取 `ttyd` 导致应用中心安装时把我们的单元覆盖到
+`/lib/systemd/system/ttyd.service` + `/etc/ttyd/` 配置冲突 → **TOS 内置终端白屏**。
+
+已返工:应用 ID 改为 **`ttyd-web`**(服务/路径全部错开),内置终端已从
+官方 `.ins` rootfs 提取原版 `ttyd.service` + `/etc/default/ttyd` + `/usr/bin/ttyd` 恢复。
+**给后续封装者的规则:选应用 ID 前先 `ssh grep /lib/systemd/system` 与 TOS 官方
+deb 清单查重,避开系统自带服务名。**
