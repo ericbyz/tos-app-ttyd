@@ -7,7 +7,7 @@ APP_DIR="/usr/local/${APPID}"
 
 # Dedicated system user with a writable home (shell cwd)
 if ! id -u "${APPID}" > /dev/null 2>&1; then
-    useradd --system --no-create-home --shell /bin/bash --home /var/lib/ttyd-web "${APPID}" 2>/dev/null || true
+    useradd --system --no-create-home --shell /bin/bash -d /var/lib/ttyd-web "${APPID}" 2>/dev/null || true
 fi
 mkdir -p /var/lib/ttyd-web 2>/dev/null || true
 chown -R "${APPID}:${APPID}" "${APP_DIR}" /var/lib/ttyd-web 2>/dev/null || true
