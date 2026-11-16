@@ -9,6 +9,8 @@ Type=simple
 User=ttyd-web
 Group=ttyd-web
 EnvironmentFile=/etc/ttyd-web/ttyd-web.env
+# systemd sets HOME=/root without PAM; pin it to the app home
+Environment=HOME=/var/lib/ttyd-web
 WorkingDirectory=/var/lib/ttyd-web
 # TTYD_PORT and TTYD_CREDENTIAL come from /etc/ttyd-web/ttyd-web.env.
 # --writable enables input (ttyd-web is read-only without it); the terminal
